@@ -37,6 +37,11 @@ This isn't in NZ, the Moselle catchment is in Germany, it is a tributary to the 
 it is Deltares most basic [example](https://deltares.github.io/Wflow.jl/dev/getting_started/download_example_models.html)
 and if you can't run this one, you won't be able to run anything else.
 
+The model is `wflow_sbm + kinematic wave`.  The sbm refers to land model being
+a spatially distributed bucket model (it is based on `Topog_SBM` from Vertessy
+and Elsenbeer, 1999), they also have the sediment model `wflow_sediment`.  The
+Kinematic wave refers to the routing concept (they have groundwater as well).
+
 Start julia and copy'n'paste this in:
 ```
 # urls to TOML and netCDF of the Piave example model
@@ -66,9 +71,11 @@ toml_path = "sbm_config.toml"
 Wflow.run(toml_path)
 ```
 
-The output ends up in `data/output`.
-
-Here is one of the static inputs, the rivers, note this is a raster.
+The output ends up in `data/output`.  Note that above we had `staticmaps` (that
+is stuff like river location), `forcing` (the climate---rain, temp etc), and
+`instates` which allows warm starts.
+Here is one of the static inputs, the rivers, note this is a raster, everything
+is provided as a raster.
 
 ![](moselle_rivers.png)
 
@@ -89,7 +96,7 @@ There are seven required static input variables, all provided via a NetCDF raste
 
 * `wflow_riverwidth`.  Width of the river in metres in that raster cell.
 
-* `wflow_subcatch`.  1 for the catchment, nodata elsewhere.
+* `wflow_subcatch`.  Subbasin IDs (for a single catchment, 1 for the catchment, nodata elsewhere)
 
 * `Slope`.  This is the land slope in m/m.  FIXME
 
