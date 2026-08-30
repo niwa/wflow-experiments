@@ -66,7 +66,12 @@ toml_path = "sbm_config.toml"
 Wflow.run(toml_path)
 ```
 
-The output ends up in `data/output`
+The output ends up in `data/output`.
+
+Here is one of the static inputs, the rivers, note this is a raster.
+
+~[](moselle_rivers.png)
+
 
 ## Building NZ example
 
@@ -76,9 +81,7 @@ Here I build a small NZ example from scratch
 
 There are seven required static input variables, all provided via a NetCDF raster file.
 
-* `wflow_ldd` is the flow directions, by default it uses the PCRaster LDD convention:
-
-        ![](lddcode.png)
+* `wflow_ldd` is the flow directions, by default it uses the PCRaster LDD convention: ![](lddcode.png)
 
 * `wflow_river` is 1 where there is a river, and nodata where not.
 
