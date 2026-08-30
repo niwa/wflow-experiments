@@ -3,7 +3,7 @@
 This details my experiments in getting Wflow running in New Zealand, both for
 calibrated catchments and nationally.
 
-[Code](https://github.com/Deltares/Wflow.jl) and [doco](https://deltares.github.io/Wflow.jl/dev/)
+Wflow.jl [repo](https://github.com/Deltares/Wflow.jl) and their [doco](https://deltares.github.io/Wflow.jl/stable/)
 
 ## Installing Julia
 
@@ -13,11 +13,10 @@ curl -fsSL https://install.julialang.org | sh
 ```
 will install `julia` and `juliaup` in your HOME dir.
 
-Under Windows
+Under Windows, get it from the Microsoft store
 ```
 winget install --name Julia --id 9NJNWW8PVKMN -e -s msstore
 ```
-will fetch it from the Micrtosoft Store.
 
 The HPC already has julia via
 ```
@@ -34,8 +33,9 @@ add Wflow
 
 ## Moselle example
 
-This isn't in NZ, but it is Deltares most basic [example](https://deltares.github.io/Wflow.jl/dev/getting_started/download_example_models.html)
-and a good test to make sure you can run Wflow in an easy catchment.
+This isn't in NZ, the Moselle catchment is in Germany, it is a tributary to the Rhine.  However
+it is Deltares most basic [example](https://deltares.github.io/Wflow.jl/dev/getting_started/download_example_models.html)
+and if you can't run this one, you won't be able to run anything else.
 
 Start julia and copy'n'paste this in:
 ```
@@ -76,8 +76,7 @@ Here I build a small NZ example from scratch
 
 There are seven required static input variables, all provided via a NetCDF raster file.
 
-* `wflow_ldd` is the D8, with values 1-9, in this order: SW, S, SE, W, pit, E,
-  NW, N, NE.
+* `wflow_ldd` is the flow directions, by default it uses the PCRaster LDD convention: ~[](lddcode.png).
 
 * `wflow_river` is 1 where there is a river, and nodata where not.
 
