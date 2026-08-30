@@ -70,7 +70,7 @@ The output ends up in `data/output`.
 
 Here is one of the static inputs, the rivers, note this is a raster.
 
-~[](moselle_rivers.png)
+![](moselle_rivers.png)
 
 
 ## Building NZ example
