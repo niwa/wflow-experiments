@@ -37,10 +37,10 @@ This isn't in NZ, the Moselle catchment is in Germany, it is a tributary to the 
 it is Deltares most basic [example](https://deltares.github.io/Wflow.jl/dev/getting_started/download_example_models.html)
 and if you can't run this one, you won't be able to run anything else.
 
-The model is `wflow_sbm + kinematic wave`.  The sbm refers to land model being
+The model is `wflow_sbm + kinematic wave`.  The `sbm` refers to land model being
 a spatially distributed bucket model (it is based on `Topog_SBM` from Vertessy
-and Elsenbeer, 1999), they also have the sediment model `wflow_sediment`.  The
-Kinematic wave refers to the routing concept (they have groundwater as well).
+and Elsenbeer, 1999), wflow also has the sediment model `wflow_sediment`.  The
+`kinematic wave` refers to the routing concept (they have groundwater as well).
 
 Start julia and copy'n'paste this in:
 ```
@@ -72,7 +72,7 @@ Wflow.run(toml_path)
 ```
 
 The output ends up in `data/output`.  Note that above we had `staticmaps` (that
-is stuff like river location), `forcing` (the climate---rain, temp etc), and
+is stuff like river location), `forcing` (the climate - rain, temp etc), and
 `instates` which allows warm starts.
 Here is one of the static inputs, the rivers, note this is a raster, everything
 is provided as a raster.
@@ -82,9 +82,9 @@ is provided as a raster.
 
 ## Building NZ example
 
-Here I build a small NZ example from scratch
+Here I build a small `smb + kinematic` NZ example from scratch
 
-### Required static input data
+### Required static input data for smb + kinematic
 
 There are seven required static input variables, all provided via a NetCDF raster file.
 
@@ -92,19 +92,17 @@ There are seven required static input variables, all provided via a NetCDF raste
 
 * `wflow_river` is 1 where there is a river, and nodata where not.
 
-* `wflow_riverlength`.  FIXME
+* `wflow_riverlength`.  I think this is the length of river in each cell.
 
 * `wflow_riverwidth`.  Width of the river in metres in that raster cell.
 
 * `wflow_subcatch`.  Subbasin IDs (for a single catchment, 1 for the catchment, nodata elsewhere)
 
-* `Slope`.  This is the land slope in m/m.  FIXME
+* `Slope`.  This is the land slope in m/m.  I think this is `PyFlowDirs`
+  implementation.
 
-* `RiverSlope`.  The slope of the river in m/m.  FIXME
-
-All of these are straight forward except I'm not sure what the river length is,
-it is really not clear from their example.  Also the slopes need defining, lots
-of different ways to define it.
+* `RiverSlope`.  The slope of the river in m/m.  There is some smoothing, it
+  isn't just (max elevation - min elevation) over riverlength.
 
 ### Required forcing data
 
