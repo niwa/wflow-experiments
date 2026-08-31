@@ -5,7 +5,12 @@ calibrated catchments and nationally.
 
 Wflow.jl [repo](https://github.com/Deltares/Wflow.jl) and their [doco](https://deltares.github.io/Wflow.jl/stable/)
 
-## Installing Julia
+## Installing Wflow and/or Julia
+
+You can either install the binary
+[wflow_cli](https://download.deltares.nl/en/wflow)
+or if you want to stay keep up with latest, modify code, or write scripts about wflow package,
+start by installing Julia.
 
 On linux
 ```
@@ -111,5 +116,11 @@ NetCDF.  The examples often have `mask` and `idx_out`.  The mask isn't
 required (we need forcing to cover at least `wflow_subcatch` but Wflow can work
 this out), and `idx_out` is just a pointer into input data that was used to
 make the forcing data.
+
+### Other inputs
+
+In states (for warm starts) not required, approximately 
+[60 other static variables](https://nzies.sharepoint.com/:w:/r/sites/FutureWaterFlagship/Shared%20Documents/Working/Hydrological%20modelling/Wflow/Description/Wflow%20parameter%20list.docx?d=wc87cccf16c9a4c3aa420222f6323329c&csf=1&web=1&e=khzbF7)
+that you could provide, also various [model_settings](https://deltares.github.io/Wflow.jl/stable/model_docs/model_settings.html)
 
 
