@@ -123,4 +123,8 @@ In states (for warm starts) not required, approximately
 [60 other static variables](https://nzies.sharepoint.com/:w:/r/sites/FutureWaterFlagship/Shared%20Documents/Working/Hydrological%20modelling/Wflow/Description/Wflow%20parameter%20list.docx?d=wc87cccf16c9a4c3aa420222f6323329c&csf=1&web=1&e=khzbF7)
 that you could provide, also various [model_settings](https://deltares.github.io/Wflow.jl/stable/model_docs/model_settings.html)
 
+## Presentation
+
+Here is a [link](https://nzies-my.sharepoint.com/:p:/g/personal/channa_rajanayaka_earthsciences_nz/IQAv0ITEH27lS7kh70QBkIg_AZxithmZLUsbIouinFoGvcI?CID=12540DC6-6047-40BB-AA4E-F6515280D8A0&previoussessionid=07426c98-eb0c-9c34-f418-a765b1c33e95)
+to the presentation of progress so far.
 
