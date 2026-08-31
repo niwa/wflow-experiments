@@ -128,3 +128,27 @@ that you could provide, also various [model_settings](https://deltares.github.io
 Here is a [link](https://nzies-my.sharepoint.com/:p:/g/personal/channa_rajanayaka_earthsciences_nz/IQAv0ITEH27lS7kh70QBkIg_AZxithmZLUsbIouinFoGvcI?CID=12540DC6-6047-40BB-AA4E-F6515280D8A0&previoussessionid=07426c98-eb0c-9c34-f418-a765b1c33e95)
 to the presentation of progress so far.
 
+# HydroMT
+
+HydroMT should allow us to build the required files for Wflow in a less manual
+painful way.  It should be repeatable.  Online
+[doco](https://deltares.github.io/hydromt/latest/) for HydroMT.
+
+Install instructions are [here](https://deltares.github.io/hydromt/v0.7.1/getting_started/installation.html) but in brief on the HPC
+
+```
+. /opt/niwa/profile/conda_24.11.3_2025.05.1.sh
+conda env create -p /esi/project/niwa00004/wilkinsmc/conda_envs/hydromt
+conda activate /esi/project/niwa00004/wilkinsmc/conda_envs/hydromt
+mamba install hydromt hydromt_wflow
+```
+and after making the above one can save out an environment yaml file for next time
+```
+conda env export | egrep -v ^prefix\|name > environment.yml
+```
+and use it to (re)make the environment
+```
+conda env create -yf environment.yml -p /esi/project/niwa00004/wilkinsmc/conda_envs/hydromt
+```
+
+
