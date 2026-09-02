@@ -130,5 +130,5 @@ to the presentation of progress so far.
 
 # HydroMT
 
-See [hydromt/README.md] for HydroMT example Northland catchment
+See [README](hydromt/README.md) for HydroMT example Northland catchment
 
