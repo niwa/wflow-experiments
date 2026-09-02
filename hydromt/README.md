@@ -14,7 +14,7 @@ Install instructions are [here](https://deltares.github.io/hydromt/v0.7.1/gettin
 . /opt/niwa/profile/conda_24.11.3_2025.05.1.sh
 conda env create -p /esi/project/niwa00004/wilkinsmc/conda_envs/hydromt
 conda activate /esi/project/niwa00004/wilkinsmc/conda_envs/hydromt
-mamba install "affine<3"
+mamba install "affine<3"  # this is because njit can't deal with Affine transform if affine too new
 mamba install hydromt hydromt_wflow
 ```
 and after making the above one can save out an environment yaml file for next time
