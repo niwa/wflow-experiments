@@ -1,0 +1,57 @@
+meta:
+    version: 1.4
+    name: thename
+
+vcsn_precip:
+  data_type: RasterDataset
+  uri: /esi/project/niwa00026/VCSN_Grids/Rain_BC/rain_bc_vclim_clidb_1972010200_2025060200_north-island_p05_daily_netcdf4.nc
+  driver:
+    name: raster_xarray
+    options:
+      chunks:
+        time: 100
+  data_adapter:
+    rename:
+      rain: precip
+  metadata:
+    crs: 4326
+
+vcsn_pet:
+  data_type: RasterDataset
+  uri: /esi/project/niwa00026/VCSN_Grids/PET/pet_vclim_clidb_1972010200_2025060200_north-island_p05_daily_netcdf4.nc
+  driver:
+    name: raster_xarray
+    options:
+      chunks:
+        time: 100
+  metadata:
+    crs: 4326
+
+vcsn_temp:
+  data_type: RasterDataset
+  uri: /esi/project/niwa00026/VCSN_Grids/Temp/temp_vclim_clidb_Norton_1972010200_2025060200_north-island_p05_daily_netcdf4.nc
+  driver:
+    name: raster_xarray
+    options:
+      chunks:
+        time: 100
+  data_adapter:
+    rename:
+      tmax: temp_max
+      tmin: temp_min
+    unit_add:
+      temp: -273.15
+      temp_max: -273.15
+      temp_min: -273.15
+  metadata:
+    crs: 4326
+
+ni_hydrography:
+  uri: /esi/project/niwa40004/northland_hydromt_hydrography_with_uparea.nc
+  data_type: RasterDataset
+  driver:
+    name: raster_xarray
+    options:
+      mask_and_scale: false
+  metadata:
+    crs: 2193

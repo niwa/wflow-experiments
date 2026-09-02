@@ -1,0 +1,36 @@
+
+steps:
+  - setup_config:                 # options parsed to wflow toml file <section>.<option>
+      data:
+        time.starttime: 2010-01-01T00:00:00
+        time.endtime: 2010-03-31T00:00:00
+        time.timestepsecs: 86400
+        input.path_forcing: inmaps-era5-2010.nc
+        output.netcdf_grid.path: output.nc
+        output.netcdf_grid.compressionlevel: 1
+        output.netcdf_grid.variables.river_water__volume_flow_rate: river_q
+
+  - setup_basemaps:
+      hydrography_fn: ni_hydrography
+      region:
+        subbasin: [1611284.7561427325,6098820.984590072]
+        uparea: 3
+      res: 4
+
+  - setup_rivers:
+      hydrography_fn: ni_hydrography
+      river_upa: 0.1       # minimum upstream area [km2] to be considered a river — tune to your catchment
+      rivdph_method: powlaw
+      min_rivdph: 1
+      min_rivwth: 3
+
+
+  - setup_precip_forcing:
+      precip_fn: vcsn_precip
+
+  - setup_temp_pet_forcing:
+      temp_pet_fn: vcsn_temp
+      skip_pet: true
+
+  - setup_pet_forcing:
+      pet_fn: vcsn_pet
